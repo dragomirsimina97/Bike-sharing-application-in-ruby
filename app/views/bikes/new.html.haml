@@ -1,0 +1,18 @@
+%h2 State Your Bike!
+
+= form_tag bikes_path, :method => :post do
+
+  = label :bikes, :Bike_ID, 'Bike_ID'
+  = text_field :bikes, :Bike_ID
+
+  = label :bikes, :State, 'State'
+  = select :bikes, :State, ['Picked','Freed']
+
+  = label :bikes, :Station, 'Station'
+  = select :bikes, :Station, ['Vivo','Iulius','Ceahlau','Observator','Gara']
+
+
+  = label :bikes, :Time, 'Time'
+  = date_select :bikes, :Time
+
+  = submit_tag 'Save Changes'

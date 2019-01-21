@@ -1,0 +1,46 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body{:style => "background-color:#f2e6ff;"}
+    %h1{:style => "background-color:#e6ccff; font-family: Courier; color: #4d0099; font-size:300%"}
+      %i Bike Sharing Application
+    %p{:style => "color: #4d0099"} This is what this app does.
+    %button{:style => "background-color: Pink;font-family: Courier; color: #13060d; font-size:100% ", :type => "button"} Stations
+    .mapouter
+      .gmap_canvas
+        %iframe#gmap_canvas{:frameborder => "0", :height => "500", :marginheight => "0", :marginwidth => "0", :scrolling => "no", :src => "https://maps.google.com/maps?q=cluj&t=&z=13&ie=UTF8&iwloc=&output=embed", :width => "600"}
+        %a{:href => "https://www.pureblack.de"} pureblack.de
+      :css
+        .mapouter{text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}
+    :css
+      .stations{
+      	background-color: #c299ff;
+          color: #4d0099;
+          padding: 10px;
+      }
+      .stations-fill{
+      	background-color: #c299ff;
+          color: #4d0099;
+          padding: 10px;
+      }
+    bike_path(bikes)
+
+= link_to 'State a bike!', new_bike_path
+-#		This	file	is	app/views/bikes/index.html.haml
+%h2 All bikes
+
+%table#bikes
+  %thead
+    %tr
+      %th Bike_ID
+      %th State
+      %th Station
+      %th Time
+  %tbody
+    - @stations.each do |bikes|
+      %tr
+        %td= bikes.Bike_ID
+        %td= bikes.Station
+        %td= bikes.State
+        %td= bikes.Time

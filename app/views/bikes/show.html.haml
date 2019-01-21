@@ -1,0 +1,21 @@
+-# in app/views/stationss/show.html.haml
+ 
+%h2 Details about #{@stations.Bike_ID}
+ 
+%ul#details
+  %li
+    Station:
+    = @stations.Station
+  %li
+    Time:
+  = @stations.Time.strftime("%B %d, %Y")
+ 
+%h3 Description:
+ 
+%p#description= @stations.description
+ 
+= link_to 'Back to stations list', stationss_path
+= link_to 'Edit info', edit_stations_path(@stations)
+= link_to 'Back	to stations list',	stations_path
+-# This Delete link will not really be a link, but a form:
+= link_to 'Delete', stations_path(@stations), :method => :delete
